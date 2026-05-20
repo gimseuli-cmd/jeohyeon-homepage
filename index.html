@@ -132,6 +132,9 @@ img { display: block; max-width: 100%; }
    Hero (메인 페이지) — 타이포 중심
    ============================================ */
 .hero {
+  background: linear-gradient(120deg, #dbeafe 0%, #ede9fe 45%, #fce7f3 100%);
+}
+.hero__inner {
   max-width: var(--container);
   margin: 0 auto;
   padding: 96px 28px 80px;
@@ -142,17 +145,15 @@ img { display: block; max-width: 100%; }
   color: var(--text-mute);
   text-transform: uppercase;
   font-weight: 600;
-  margin-top: 32px;
+  margin-top: 10px;
   display: inline-block;
-  border-top: 1px solid var(--line-strong);
-  padding-top: 14px;
 }
 .hero__title {
   font-size: clamp(36px, 5.6vw, 76px);
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.035em;
-  margin-bottom: 28px;
+  margin-bottom: 0;
   max-width: 980px;
 }
 .hero__title em {
@@ -257,17 +258,17 @@ img { display: block; max-width: 100%; }
    Mobile overrides — 모바일 우선 간격 압축
    ============================================ */
 @media (max-width: 640px) {
-  .hero {
-    padding: 40px 20px 24px;
+  .hero__inner {
+    padding: 40px 20px 32px;
   }
   .hero__eyebrow {
     font-size: 11px;
     letter-spacing: 0.18em;
-    margin-top: 24px;
-    padding-top: 10px;
+    margin-top: 8px;
+    padding-top: 0;
   }
   .hero__title {
-    margin-bottom: 18px;
+    margin-bottom: 0;
     letter-spacing: -0.03em;
   }
   .hero__lead {
@@ -732,9 +733,11 @@ table.data tbody tr:hover { background: var(--bg-soft); }
 
 <main>
   <section class="hero">
-    <p class="hero__lead">저현고등학교 자공고 교육 모델</p>
-    <h1 class="hero__title">바이오 융합 3G 교육과정</h1>
-    <span class="hero__eyebrow">Growth as <em>Glocal Talent</em> from Goyang</span>
+    <div class="hero__inner">
+      <p class="hero__lead">저현고등학교 자공고 교육 모델</p>
+      <h1 class="hero__title">바이오 융합 3G 교육과정</h1>
+      <span class="hero__eyebrow">Growth as <em>Glocal Talent</em> from Goyang</span>
+    </div>
   </section>
 
   <section class="section" id="departments">
