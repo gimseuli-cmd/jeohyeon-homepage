@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>학년부 · 저현고등학교 2026</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+/* ============================================
+   저현고등학교 부서별 홍보 사이트 — 2026
+   참고: 국립현대미술관 · 궁능유적본부
+   라이트 모드 · 미니멀 · 한국 공공기관 톤
+   ============================================ */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f7f7f5;
+  --bg-elev: #fafafa;
+  --text: #111111;
+  --text-sub: #4a4a4a;
+  --text-mute: #8a8a8a;
+  --line: #e5e5e5;
+  --line-strong: #1a1a1a;
+  --accent: #1a1a1a;             /* 액센트는 검정으로 절제 */
+
+  /* 부서별 컬러 — 텍스트·얇은 라인에만 사용 (배경 X) */
+  --c-changin:     #1d4ed8;      /* 짙은 코발트 블루 */
+  --c-science:     #047857;      /* 깊은 그린 */
+  --c-arts:        #b45309;      /* 황토/벽돌 */
+  --c-counseling:  #6d28d9;      /* 깊은 보라 */
+  --c-grade:       #9f1239;      /* 와인 */
+  --c-partnership: #0e7490;      /* 청록 */
+
+  --container: 1280px;
+  --container-narrow: 980px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Malgun Gothic', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01";
+  word-break: keep-all;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+::selection { background: #1a1a1a; color: #fff; }
+
+/* ============================================
+   Site header  (얇고 깔끔)
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand__mark {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.brand__mark img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.brand__name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* 6개 부서 네비게이션 */
+.site-nav {
+  display: flex; gap: 22px; font-size: 13.5px;
+  color: var(--text-sub);
+  align-items: center;
+}
+.site-nav a { position: relative; padding: 6px 0; font-weight: 500; }
+.site-nav a:hover { color: var(--text); }
+.site-nav a:hover::after,
+.site-nav a.is-active::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -2px;
+  height: 2px; background: var(--c, var(--text));
+}
+.site-nav a[data-dept="changin"]     { --c: var(--c-changin); }
+.site-nav a[data-dept="science"]     { --c: var(--c-science); }
+.site-nav a[data-dept="arts"]        { --c: var(--c-arts); }
+.site-nav a[data-dept="counseling"]  { --c: var(--c-counseling); }
+.site-nav a[data-dept="grade"]       { --c: var(--c-grade); }
+.site-nav a[data-dept="partnership"] { --c: var(--c-partnership); }
+@media (max-width: 1100px) {
+  .site-nav { gap: 16px; font-size: 12.5px; }
+}
+@media (max-width: 880px) {
+  .site-nav { display: none; }
+}
+
+/* ============================================
+   Hero (메인 페이지) — 타이포 중심
+   ============================================ */
+.hero {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 96px 28px 80px;
+}
+.hero__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 24px;
+  display: inline-block;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 14px;
+}
+.hero__title {
+  font-size: clamp(36px, 5.6vw, 76px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+  max-width: 980px;
+}
+.hero__title em {
+  font-style: normal;
+  position: relative;
+  white-space: nowrap;
+}
+.hero__title em::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 4px;
+  height: 12px;
+  background: #fff3a0;
+  z-index: -1;
+  opacity: 0.85;
+}
+.hero__lead {
+  font-size: clamp(15px, 1.3vw, 18px);
+  color: var(--text-sub);
+  max-width: 720px;
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+.hero__meta {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-mute);
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.hero__meta span { display: inline-flex; align-items: baseline; gap: 8px; }
+.hero__meta strong { color: var(--text); font-weight: 600; }
+
+/* meta row (간단한 한 줄 정보) */
+.meta-row {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px 24px;
+  display: flex; gap: 36px; flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-mute);
+}
+.meta-row dt {
+  display: inline; color: var(--text); font-weight: 600; margin-right: 8px;
+  letter-spacing: 0.02em;
+}
+.meta-row dd { display: inline; }
+.meta-row > div { display: flex; align-items: baseline; }
+
+/* ============================================
+   Section heading
+   ============================================ */
+.section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 80px 28px 120px;
+}
+.section__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.section__head--simple { border-bottom: 1px solid var(--line); }
+.section__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: block;
+}
+.section__title {
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+.section__sub {
+  font-size: 13px;
+  color: var(--text-mute);
+  max-width: 360px;
+  text-align: right;
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .section__head { flex-direction: column; align-items: flex-start; }
+  .section__sub { text-align: left; }
+}
+
+/* ============================================
+   Department cards (텍스트 + 얇은 라인 중심)
+   ============================================ */
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 1024px) { .dept-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .dept-grid { grid-template-columns: 1fr; } }
+
+.dept-card {
+  position: relative;
+  display: block;
+  padding: 36px 30px 36px;
+  min-height: 280px;
+  background: var(--c-bg, var(--bg));
+  border-top: 4px solid var(--c, var(--text));
+  transition: filter .25s ease, transform .25s ease;
+}
+.dept-card:hover {
+  filter: brightness(0.97);
+}
+.dept-card:hover .dept-card__arrow { transform: translate(4px, -4px); }
+.dept-card:hover .dept-card__name { color: var(--c, var(--text)); }
+
+.dept-card__num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--c, var(--text-mute));
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: inline-block;
+}
+.dept-card__desc { color: var(--text-sub); }
+.dept-card__name {
+  font-size: clamp(26px, 2.2vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+  line-height: 1.15;
+  transition: color .25s ease;
+}
+.dept-card__en {
+  font-size: 12px;
+  color: var(--text-mute);
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.dept-card__desc {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.7;
+  max-width: 360px;
+}
+.dept-card__arrow {
+  position: absolute;
+  top: 36px; right: 30px;
+  font-size: 18px;
+  color: var(--c, var(--text-mute));
+  transition: transform .3s ease;
+  font-weight: 400;
+}
+
+.dept-card[data-dept="changin"]     { --c: var(--c-changin);     --c-bg: #e8f0fc; }
+.dept-card[data-dept="science"]     { --c: var(--c-science);     --c-bg: #e6f2ea; }
+.dept-card[data-dept="arts"]        { --c: var(--c-arts);        --c-bg: #f9eedd; }
+.dept-card[data-dept="counseling"]  { --c: var(--c-counseling);  --c-bg: #efe6f8; }
+.dept-card[data-dept="grade"]       { --c: var(--c-grade);       --c-bg: #f8e5ec; }
+.dept-card[data-dept="partnership"] { --c: var(--c-partnership); --c-bg: #e1eef1; }
+
+/* ============================================
+   Detail page hero
+   ============================================ */
+body[data-dept="changin"]     { --c: var(--c-changin); }
+body[data-dept="science"]     { --c: var(--c-science); }
+body[data-dept="arts"]        { --c: var(--c-arts); }
+body[data-dept="counseling"]  { --c: var(--c-counseling); }
+body[data-dept="grade"]       { --c: var(--c-grade); }
+body[data-dept="partnership"] { --c: var(--c-partnership); }
+
+.detail-hero {
+  border-bottom: 1px solid var(--line-strong);
+}
+.detail-hero__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 56px 28px 32px;
+}
+.detail-hero__back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-sub);
+  margin-bottom: 32px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  font-weight: 500;
+}
+.detail-hero__back:hover { color: var(--text); border-bottom-color: var(--text); }
+.detail-hero__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--c, var(--text-mute));
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 18px;
+  display: inline-block;
+  border-top: 1px solid var(--c, var(--text-mute));
+  padding-top: 14px;
+}
+.detail-hero__title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  margin-bottom: 0;
+}
+.detail-hero__sub {
+  font-size: clamp(15px, 1.3vw, 18px);
+  color: var(--text-sub);
+  max-width: 780px;
+  line-height: 1.75;
+}
+
+/* ============================================
+   Content blocks (single column)
+   ============================================ */
+.content {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 60px 28px 120px;
+}
+.content__main {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+.block { position: relative; }
+.block + .block { border-top: 1px solid var(--line); padding-top: 60px; }
+
+.block__head {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  margin-bottom: 28px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .block__head { grid-template-columns: 1fr; gap: 8px; }
+}
+.block__eyebrow {
+  font-size: 13.5px;
+  letter-spacing: 0.22em;
+  color: var(--c, var(--text-mute));
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-top: 8px;
+}
+.block__title {
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: var(--text);
+}
+.block__lead {
+  font-size: 16px;
+  color: var(--text-sub);
+  margin-top: 14px;
+  max-width: 760px;
+  line-height: 1.75;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding-left: 260px;
+}
+@media (max-width: 900px) { .list { padding-left: 0; } }
+.list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-sub);
+  font-size: 15px;
+  line-height: 1.75;
+}
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 12px;
+  width: 6px; height: 1px;
+  background: var(--c, var(--text-sub));
+}
+
+/* tag pill */
+.tag-row {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 18px;
+  padding-left: 260px;
+}
+@media (max-width: 900px) { .tag-row { padding-left: 0; } }
+.tag {
+  font-size: 12px;
+  padding: 5px 11px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  background: var(--bg);
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* sub cards (얇은 라인, 박스 X) */
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.sub-grid--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .sub-grid--3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) {
+  .sub-grid, .sub-grid--3 { grid-template-columns: 1fr; }
+}
+
+.sub-card {
+  position: relative;
+  padding: 28px 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.sub-card:hover { background: var(--bg-soft); }
+@media (min-width: 901px) {
+  .sub-grid > .sub-card:nth-child(2n) { border-right: none; }
+  .sub-grid--3 > .sub-card:nth-child(3n) { border-right: none; }
+}
+@media (max-width: 900px) and (min-width: 641px) {
+  .sub-grid > .sub-card:nth-child(2n),
+  .sub-grid--3 > .sub-card:nth-child(2n) { border-right: none; }
+}
+@media (max-width: 640px) {
+  .sub-card { border-right: none; }
+}
+
+.sub-card__meta {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--c, var(--text-mute));
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.sub-card__title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  line-height: 1.35;
+}
+.sub-card__body {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.75;
+}
+
+/* table */
+.table-wrap {
+  overflow-x: auto;
+  margin: 20px 0 0;
+  border-top: 1px solid var(--line-strong);
+}
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+table.data th, table.data td {
+  text-align: left;
+  padding: 16px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+table.data thead th {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 12px; padding-bottom: 12px;
+}
+table.data tbody td:first-child {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+table.data tbody tr:hover { background: var(--bg-soft); }
+
+/* schedule */
+.schedule {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px 32px;
+  padding: 24px 0;
+  margin-top: 20px;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+.schedule dt {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-top: 3px;
+}
+.schedule dd { color: var(--text-sub); }
+@media (max-width: 640px) {
+  .schedule { grid-template-columns: 1fr; gap: 4px 0; padding: 20px 0; }
+  .schedule dd { margin-bottom: 14px; }
+  .schedule dd:last-child { margin-bottom: 0; }
+}
+
+/* sub heading inside a block */
+.sub-heading {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 4px;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+.sub-heading + .table-wrap,
+.sub-heading + .sub-grid,
+.sub-heading + .list { margin-top: 12px; }
+
+/* ============================================
+   Poster — 행사 홍보 포스터
+   ============================================ */
+.poster-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+.poster-row--1 { grid-template-columns: minmax(0, 480px); }
+@media (max-width: 640px) {
+  .poster-row, .poster-row--1 { grid-template-columns: 1fr; }
+}
+.poster {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  margin: 0;
+}
+.poster img { width: 100%; height: auto; display: block; }
+.poster__caption {
+  font-size: 13px;
+  color: var(--text-sub);
+  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-soft);
+  line-height: 1.5;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--line-strong);
+  padding: 48px 28px 64px;
+  background: var(--bg-soft);
+}
+.site-footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--text-sub);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.site-footer__inner a { color: var(--text); border-bottom: 1px solid transparent; }
+.site-footer__inner a:hover { border-bottom-color: var(--text); }
+.site-footer__brand { font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.site-footer__copy { color: var(--text-mute); margin-top: 12px; font-size: 12px; }
+
+/* ============================================
+   Placeholder (진로상담부 등)
+   ============================================ */
+.placeholder {
+  padding: 80px 28px;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+.placeholder__title {
+  font-size: 22px; font-weight: 800; color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.placeholder__body {
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.75;
+  color: var(--text-sub);
+  font-size: 14.5px;
+}
+
+
+/* ============================================
+   Lightbox — 포스터 확대 모달
+   ============================================ */
+.poster img { cursor: zoom-in; }
+body.lightbox-open { overflow: hidden; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overscroll-behavior: contain;
+}
+.lightbox.is-open { display: flex; }
+.lightbox__img {
+  max-width: 95vw;
+  max-height: 92vh;
+  object-fit: contain;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+.lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: inherit;
+  padding: 0;
+}
+.lightbox__close:hover { background: rgba(255, 255, 255, 0.3); }
+</style>
+</head>
+<body data-dept="grade">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="../index.html" class="brand">
+      <span class="brand__mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAACgCAIAAADGnbT+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2xpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmRhYmFjYmIsIDIwMjEvMDQvMTQtMDA6Mzk6NDQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YjBhZGE4YTMtMDM4Yy1hNzRhLThlZDMtNzVlOWM3Mzg4MjZhIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkEyQzI1N0MxNEUxMTExRUU5QzdGQjE4NEU3QURGNUQ1IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkEyQzI1N0MwNEUxMTExRUU5QzdGQjE4NEU3QURGNUQ1IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyNC4wIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkJBOTJCMDNBNEQzNzExRUVCQjBGREIzQkJFMzNBQTIzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkJBOTJCMDNCNEQzNzExRUVCQjBGREIzQkJFMzNBQTIzIi8+IDwvcmRmOkRl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" alt="저현고등학교 엠블럼" /></span>
+      <div>
+        <div class="brand__name">자율형 공립고 저현고등학교</div>
+      </div>
+    </a>
+    <nav class="site-nav">
+      <a class="is-link" data-dept="changin" href="../pages/창의인문부.html">창의인문부</a>
+      <a class="is-link" data-dept="science" href="../pages/과학정보부.html">과학정보부</a>
+      <a class="is-link" data-dept="arts" href="../pages/예술체육부.html">예술체육부</a>
+      <a class="is-link" data-dept="counseling" href="../pages/진로상담부.html">진로상담부</a>
+      <a class="is-link is-active" data-dept="grade" href="../pages/학년부.html">학년부</a>
+      <a class="is-link" data-dept="partnership" href="../pages/대외협력부.html">대외협력부</a>
+    </nav>
+  </div>
+</header>
+
+<section class="detail-hero">
+  <div class="detail-hero__inner">
+    <a href="../index.html" class="detail-hero__back">← 부서 목록으로</a>
+    <h1 class="detail-hero__title">학년부</h1>
+  </div>
+</section>
+
+<div class="content">
+  <div class="content__main">
+
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">Program 01 · 체험학습</div>
+        <div>
+          <h2 class="block__title">글로컬 리더들이 이끈 학년체험학습</h2>
+        </div>
+      </div>
+      <ul class="list">
+        <li>학생 주도 지역 발전 연계 학습체험학습 운영</li>
+        <li>지역과 함께 발전하는 세계시민(Global + Local)으로서의 역량을 키우는 글로컬 리더들이 체험학습 코스 구성</li>
+        <li>글로벌 리더들의 구상안을 학급별로 보완하여 우리 반의 체험학습 직접 주도적으로 계획, 지역의 고유성을 발견시키는 방안을 모색</li>
+      </ul>
+
+      <h3 class="sub-heading">관련 홍보 포스터</h3>
+      <div class="poster-row">
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-glocal-leader.png" alt="2026학년도 글로컬 리더(global+local) 모집안내" />
+        </figure>
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-class-trip-review.png" alt="저현고등학교 학급현체 리뷰 이벤트" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">Program 02 · 창업 아이디어</div>
+        <div>
+          <h2 class="block__title">창업 아이디어 공모전 — 지역 발전 및 기업가 정신의 실천</h2>
+        </div>
+      </div>
+      <ul class="list">
+        <li>윤리적 기업가 정신을 반영한 지역 발전 연계 창업 아이디어 기획</li>
+        <li>창업 및 기업가 정신 주제의 특강을 통해 지속가능한 사회를 만들어가는 주체로서의 책임 의식과 공동체 의식 함양</li>
+        <li>지속가능발전목표(SDGs)를 단순한 지식이 아닌 실천 가능한 해결 방안으로 구체화하는 경험</li>
+        <li>창업 아이디어 기획 활동 후 모의 판매를 연계하여 사회적 가치와 경제적 가치를 함께 고려하는 통합적 사고력의 신장 도모</li>
+        <li>학생 참여형 부표를 통해 합리적 의사결정을 실천하고, 공동체의 의사결정 과정에 능동적으로 참여하는 태도 함양</li>
+      </ul>
+
+      <h3 class="sub-heading">관련 홍보 포스터</h3>
+      <div class="poster-row poster-row--1">
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-startup-contest.png" alt="2026 창업 아이디어 공모전" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">Program 03 · 재능 기부</div>
+        <div>
+          <h2 class="block__title">지역 발전 재능 기부 — 나와 지역을 가치 잇는 인생 디자인</h2>
+        </div>
+      </div>
+      <ul class="list">
+        <li>학급별 지역사회 플로깅(쓰레기줍기) 활동</li>
+        <li>자신의 멋진 인생을 설계하기 위한 인디로드 제작</li>
+        <li>지역 사회 탐방 후 문제점을 탐색하고 지역경제 제안서 작성</li>
+        <li>착한 소비 나눔 시장 플리마켓 데이에서 나눔과 기부 정신 실천</li>
+        <li>개인적인 목표와 함께 이웃과 지역사회에 기여할 수 있는 분야를 탐색하고 구체적인 재능기부 방향을 모색, 실천</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">재능기부 인생 설계 인디로드</span>
+        <span class="tag">지역사회 플로깅(쓰레기줍기)</span>
+        <span class="tag">지역 농장 체험 및 활성 방안 모색</span>
+        <span class="tag">지역 축제 참가 및 활성 방안 모색</span>
+        <span class="tag">지역 전통시장 체험 및 활성 방안 모색</span>
+      </div>
+    </section>
+
+    <!-- 프로그램 1 — 문화다양성 이해 교육 -->
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">Program 04 · 문화다양성</div>
+        <div>
+          <h2 class="block__title">문화다양성 이해 교육</h2>
+          <p class="block__lead">고양시다문화가족센터와 함께 다양한 문화를 배우고 직접 체험하며 글로벌 세계시민 역량을 기릅니다.</p>
+        </div>
+      </div>
+
+      <div class="sub-grid">
+        <div class="sub-card">
+          <div class="sub-card__title">2학년</div>
+          <p class="sub-card__body">
+            <strong>일시</strong> 2026. 4. 1.(화) / 4. 3.(금) 1~3교시<br />
+            <strong>대상</strong> 2학년 전교생<br />
+            <strong>장소</strong> 각 반 교실
+          </p>
+        </div>
+        <div class="sub-card">
+          <div class="sub-card__title">1학년</div>
+          <p class="sub-card__body">
+            <strong>일시</strong> 2026. 5. 8.(금) / 2026. 5. 13.(화) 2~4교시<br />
+            <strong>대상</strong> 1학년 전교생<br />
+            <strong>장소</strong> 각 반 교실
+          </p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">교육 내용</h3>
+      <ul class="list">
+        <li>러시아·베트남·몽골·캄보디아·모로코·필리핀·일본·중국 출신 강사와 함께 문화를 배우고 체험</li>
+        <li>다양한 문화를 직접 경험하며 더 넓은 세상에 대한 이해와 공감 능력 함양</li>
+        <li>글로벌 세계시민으로서의 역량 강화</li>
+      </ul>
+    </section>
+
+    <!-- 프로그램 2 — SDGs 이해 교육 -->
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">Program 05 · SDGs</div>
+        <div>
+          <h2 class="block__title">SDGs 이해 교육</h2>
+          <p class="block__lead">고양시 지속가능발전협의회와 함께 지속가능발전 목표(SDGs)를 일상, 학교, 지역사회로 끌어와 실천합니다.</p>
+        </div>
+      </div>
+
+      <div class="sub-grid">
+        <div class="sub-card">
+          <div class="sub-card__title">2학년</div>
+          <p class="sub-card__body">
+            <strong>일시</strong> 2026. 4. 1.(화) / 4. 3.(금) 1~3교시<br />
+            <strong>대상</strong> 2학년 전교생<br />
+            <strong>장소</strong> 각 반 교실
+          </p>
+        </div>
+        <div class="sub-card">
+          <div class="sub-card__title">1학년</div>
+          <p class="sub-card__body">
+            <strong>일시</strong> 2026. 5. 8.(금) / 5. 13.(화) 2~4교시<br />
+            <strong>대상</strong> 1학년 전체<br />
+            <strong>장소</strong> 각 반 교실
+          </p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">교육 내용</h3>
+      <ul class="list">
+        <li>UN이 정한 17가지 지속가능발전 목표(SDGs)의 개념 이해</li>
+        <li>우리 학교·일상·지역사회에서 실천 가능한 SDGs 목표 탐구 및 토론</li>
+        <li>더 나은 세상을 위한 구체적인 실천 방법 논의</li>
+      </ul>
+    </section>
+
+    <!-- 프로그램 3 — 2026 미래포럼 -->
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">Program 06 · 미래포럼</div>
+        <div>
+          <h2 class="block__title">2026 미래포럼 — SDGs 독서 기반 팀 탐구 프로젝트</h2>
+          <p class="block__lead">
+            SDGs를 기반으로 일상·학교·지역사회·세계가 직면한 문제를 발견하고,
+            독서와 탐구를 통해 지속 가능한 미래를 위한 아이디어를 포럼에서 직접 제안합니다.
+          </p>
+        </div>
+      </div>
+
+      <dl class="schedule">
+        <dt>주관</dt>
+        <dd>1학년부</dd>
+        <dt>대상</dt>
+        <dd>1학년 학생 (학년 내 자유 팀 구성, 4~6명/팀)</dd>
+        <dt>신청 기간</dt>
+        <dd>2026. 5. 18.(월) ~ 5. 23.(금)</dd>
+        <dt>신청 방법</dt>
+        <dd>팀 대표 1명이 참가 신청서 작성 후 구글 클래스룸 제출</dd>
+      </dl>
+
+      <h3 class="sub-heading">월별 운영 일정</h3>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>월</th><th>단계</th><th>주요 활동 / 제출물</th></tr></thead>
+          <tbody>
+            <tr><td>6월</td><td>안내 &amp; 팀 구성</td><td>SDGs 강연 참여 · 팀 구성 · 주제·도서 선정 · 참가 신청서 제출</td></tr>
+            <tr><td>7월</td><td>독서</td><td>팀별 SDGs 도서 공독 · 문제 발견 · 1차 팀 보고서 + 개인 활동지 제출</td></tr>
+            <tr><td>8월</td><td>탐구</td><td>기사·통계·사례 조사 · 문제 원인 분석 · 2차 팀 보고서 + 개인 활동지 제출</td></tr>
+            <tr><td>9월</td><td>제안</td><td>아이디어 구체화 · 결과물 제작 · 3차 팀 보고서 + 개인 활동지 제출</td></tr>
+            <tr><td>10월</td><td>포럼 주간</td><td>팀별 발표 · 질의응답 · 청중 토의 · 공감 아이디어 투표</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-heading">프로젝트 3단계 흐름</h3>
+      <div class="sub-grid sub-grid--3">
+        <div class="sub-card">
+          <div class="sub-card__meta">1단계</div>
+          <div class="sub-card__title">문제 발견</div>
+          <p class="sub-card__body">일상·학교·지역사회에서 해결할 문제 찾기</p>
+        </div>
+        <div class="sub-card">
+          <div class="sub-card__meta">2단계</div>
+          <div class="sub-card__title">독서와 탐구</div>
+          <p class="sub-card__body">SDGs 관련 도서 팀 공독 + 자료 조사·분석</p>
+        </div>
+        <div class="sub-card">
+          <div class="sub-card__meta">3단계</div>
+          <div class="sub-card__title">아이디어 제안</div>
+          <p class="sub-card__body">포럼에서 해결 방안 발표 및 토의</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">자율형 공립고 저현고등학교</div>
+    <div>경기도 고양시 일산동구 위시티3로 37</div>
+    <div>문의 031-960-1802 (교무실) · <a href="https://jeohyeon-h.goegy.kr/">jeohyeon-h.goegy.kr</a></div>
+    <div class="site-footer__copy">© 2026 Jeohyeon High School. All rights reserved.</div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  let lightbox = null;
+  function ensure() {
+    if (lightbox) return lightbox;
+    lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML =
+      '<button class="lightbox__close" aria-label="닫기" type="button">\u00D7</button>' +
+      '<img class="lightbox__img" alt="" />';
+    document.body.appendChild(lightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox || e.target.classList.contains('lightbox__close')) {
+        close();
+      }
+    });
+    return lightbox;
+  }
+  function open(src, alt) {
+    const lb = ensure();
+    const img = lb.querySelector('.lightbox__img');
+    img.src = src;
+    img.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.classList.add('lightbox-open');
+  }
+  function close() {
+    if (lightbox && lightbox.classList.contains('is-open')) {
+      lightbox.classList.remove('is-open');
+      document.body.classList.remove('lightbox-open');
+    }
+  }
+  document.addEventListener('click', function (e) {
+    const img = e.target.closest('.poster img');
+    if (img) {
+      e.preventDefault();
+      open(img.src, img.alt);
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+</script>
+</body>
+</html>
