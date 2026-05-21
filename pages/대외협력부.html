@@ -628,8 +628,12 @@ table.data tbody tr:hover { background: var(--bg-soft); }
   margin-top: 20px;
 }
 .poster-row--1 { grid-template-columns: minmax(0, 480px); }
+.poster-row--3 { grid-template-columns: repeat(3, 1fr); }
+.poster-row--5 { grid-template-columns: repeat(5, 1fr); gap: 8px; }
 @media (max-width: 640px) {
   .poster-row, .poster-row--1 { grid-template-columns: 1fr; }
+  .poster-row--3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .poster-row--5 { grid-template-columns: repeat(5, 1fr); gap: 4px; }
 }
 .poster {
   display: block;
@@ -1064,6 +1068,26 @@ body.lightbox-open { overflow: hidden; }
         <div class="sub-card"><div class="sub-card__title">PINPOINT</div><p class="sub-card__body">학습 효율 향상을 위한 교실 환기 알림 시스템 개발</p></div>
         <div class="sub-card"><div class="sub-card__title">Room OS</div><p class="sub-card__body">교내 '생각나눔터' 예약 및 출입 관리 시스템 구축</p></div>
         <div class="sub-card"><div class="sub-card__title">소방관</div><p class="sub-card__body">학교 화재 대응 RISK MAP 및 행동 가이드라인 제작</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">관련 홍보 포스터</div>
+        <div>
+          <h2 class="block__title">2026 모집·홍보 포스터 모아보기</h2>
+        </div>
+      </div>
+      <div class="poster-row poster-row--3">
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-bioprinting-camp.png" alt="2026학년도 3D 바이오프린팅 캠프" />
+        </figure>
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-crew-recruitment.png" alt="자공고 2.0 특색 프로그램 크루 인증제 참가자 모집" />
+        </figure>
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-crew-pitching.png" alt="2026 크루 인증제 피칭 데이" />
+        </figure>
       </div>
     </section>
 
