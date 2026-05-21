@@ -345,6 +345,32 @@ body[data-dept="partnership"] { --c: var(--c-partnership); }
   font-weight: 500;
 }
 .detail-hero__back:hover { color: var(--text); border-bottom-color: var(--text); }
+.back-to-list {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 24px 28px 56px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.back-to-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-sub);
+  padding: 12px 28px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: color .2s, border-color .2s;
+}
+.back-to-list a:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+@media (max-width: 640px) {
+  .back-to-list { padding: 20px 20px 40px; }
+}
+
 .detail-hero__eyebrow {
   font-size: 12px;
   letter-spacing: 0.22em;
@@ -866,6 +892,11 @@ body.lightbox-open { overflow: hidden; }
     </section>
 
   </div>
+</div>
+
+
+<div class="back-to-list">
+  <a href="../index.html">← 부서 목록으로</a>
 </div>
 
 <footer class="site-footer">

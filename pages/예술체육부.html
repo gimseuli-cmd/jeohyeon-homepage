@@ -343,6 +343,32 @@ body[data-dept="partnership"] { --c: var(--c-partnership); }
   font-weight: 500;
 }
 .detail-hero__back:hover { color: var(--text); border-bottom-color: var(--text); }
+.back-to-list {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 24px 28px 56px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.back-to-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-sub);
+  padding: 12px 28px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: color .2s, border-color .2s;
+}
+.back-to-list a:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+@media (max-width: 640px) {
+  .back-to-list { padding: 20px 20px 40px; }
+}
+
 .detail-hero__eyebrow {
   font-size: 12px;
   letter-spacing: 0.22em;
@@ -530,9 +556,8 @@ table.data {
 table.data td, table.data th { word-break: keep-all; overflow-wrap: break-word; }
 @media (max-width: 640px) {
   .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table.data { table-layout: auto; font-size: 13px; min-width: 100%; }
-  table.data th, table.data td { padding: 10px 8px; }
-  table.data colgroup col { width: auto !important; }
+  table.data { font-size: 13px; min-width: 100%; }
+  table.data th, table.data td { padding: 10px 6px; }
 }
 table.data th, table.data td {
   text-align: left;
@@ -765,9 +790,10 @@ body.lightbox-open { overflow: hidden; }
       </div>
       <div class="table-wrap">
         <table class="data">
+          <colgroup><col style="width:20%"><col style="width:33%"><col style="width:14%"><col style="width:33%"></colgroup>
           <thead><tr><th>종목</th><th>시기</th><th>요일</th><th>참가대상</th></tr></thead>
           <tbody>
-            <tr><td>건강증진프로그램<br />(달리기, 체력운동)</td><td>2026. 5. 18. ~ 12. 18.</td><td>매주 월</td><td>1, 2, 3학년 희망자 (14명 내외)</td></tr>
+            <tr><td>건강증진<br />프로그램<br />(달리기,<br />체력운동)</td><td>2026. 5. 18. ~ 12. 18.</td><td>매주 월</td><td>1, 2, 3학년 희망자 (14명 내외)</td></tr>
             <tr><td>배드민턴</td><td>2026. 5. 22. ~ 12. 18.</td><td>매주 금</td><td>1, 2, 3학년 희망자 (40명 내외)</td></tr>
             <tr><td>배구(남자)</td><td>2026. 5. 21. ~ 12. 18.</td><td>매주 목</td><td>1, 2, 3학년 희망자 (25명 내외)</td></tr>
             <tr><td>배구(여자)</td><td>2026. 5. 20. ~ 12. 18.</td><td>매주 수</td><td>1, 2, 3학년 희망자 (11명 내외)</td></tr>
@@ -933,6 +959,11 @@ body.lightbox-open { overflow: hidden; }
     </section>
 
   </div>
+</div>
+
+
+<div class="back-to-list">
+  <a href="../index.html">← 부서 목록으로</a>
 </div>
 
 <footer class="site-footer">
