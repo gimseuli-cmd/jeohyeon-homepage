@@ -623,8 +623,12 @@ table.data tbody tr:hover { background: var(--bg-soft); }
   margin-top: 20px;
 }
 .poster-row--1 { grid-template-columns: minmax(0, 480px); }
+.poster-row--3 { grid-template-columns: repeat(3, 1fr); }
+.poster-row--5 { grid-template-columns: repeat(5, 1fr); gap: 8px; }
 @media (max-width: 640px) {
   .poster-row, .poster-row--1 { grid-template-columns: 1fr; }
+  .poster-row--3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .poster-row--5 { grid-template-columns: repeat(5, 1fr); gap: 4px; }
 }
 .poster {
   display: block;
@@ -779,16 +783,6 @@ body.lightbox-open { overflow: hidden; }
         <li>지역과 함께 발전하는 세계시민(Global + Local)으로서의 역량을 키우는 글로컬 리더들이 체험학습 코스 구성</li>
         <li>글로벌 리더들의 구상안을 학급별로 보완하여 우리 반의 체험학습 직접 주도적으로 계획, 지역의 고유성을 발견시키는 방안을 모색</li>
       </ul>
-
-      <h3 class="sub-heading">관련 홍보 포스터</h3>
-      <div class="poster-row">
-        <figure class="poster">
-          <img src="../assets/img/posters/poster-glocal-leader.png" alt="2026학년도 글로컬 리더(global+local) 모집안내" />
-        </figure>
-        <figure class="poster">
-          <img src="../assets/img/posters/poster-class-trip-review.png" alt="저현고등학교 학급현체 리뷰 이벤트" />
-        </figure>
-      </div>
     </section>
 
     <section class="block">
@@ -805,13 +799,6 @@ body.lightbox-open { overflow: hidden; }
         <li>창업 아이디어 기획 활동 후 모의 판매를 연계하여 사회적 가치와 경제적 가치를 함께 고려하는 통합적 사고력의 신장 도모</li>
         <li>학생 참여형 부표를 통해 합리적 의사결정을 실천하고, 공동체의 의사결정 과정에 능동적으로 참여하는 태도 함양</li>
       </ul>
-
-      <h3 class="sub-heading">관련 홍보 포스터</h3>
-      <div class="poster-row poster-row--1">
-        <figure class="poster">
-          <img src="../assets/img/posters/poster-startup-contest.png" alt="2026 창업 아이디어 공모전" />
-        </figure>
-      </div>
     </section>
 
     <section class="block">
@@ -959,6 +946,26 @@ body.lightbox-open { overflow: hidden; }
           <div class="sub-card__title">아이디어 제안</div>
           <p class="sub-card__body">포럼에서 해결 방안 발표 및 토의</p>
         </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block__head">
+        <div class="block__eyebrow">관련 홍보 포스터</div>
+        <div>
+          <h2 class="block__title">2026 모집·홍보 포스터 모아보기</h2>
+        </div>
+      </div>
+      <div class="poster-row poster-row--3">
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-glocal-leader.png" alt="2026학년도 글로컬 리더(global+local) 모집안내" />
+        </figure>
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-class-trip-review.png" alt="저현고등학교 학급현체 리뷰 이벤트" />
+        </figure>
+        <figure class="poster">
+          <img src="../assets/img/posters/poster-startup-contest.png" alt="2026 창업 아이디어 공모전" />
+        </figure>
       </div>
     </section>
 
