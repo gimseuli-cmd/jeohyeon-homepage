@@ -529,7 +529,13 @@ table.data {
   font-size: 14.5px;
   table-layout: fixed;
 }
-table.data td, table.data th { word-break: break-word; }
+table.data td, table.data th { word-break: keep-all; overflow-wrap: break-word; }
+@media (max-width: 640px) {
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { table-layout: auto; font-size: 13px; min-width: 100%; }
+  table.data th, table.data td { padding: 10px 8px; }
+  table.data colgroup col { width: auto !important; }
+}
 table.data th, table.data td {
   text-align: left;
   padding: 16px 16px;

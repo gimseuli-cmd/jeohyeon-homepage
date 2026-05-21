@@ -384,8 +384,12 @@ body[data-dept="partnership"] { --c: var(--c-partnership); }
 
 .block { position: relative; }
 .block + .block { border-top: 1px solid var(--line); padding-top: 60px; }
-.block + .block.block--sub { border-top: none; padding-top: 32px; }
-.block.block--sub > .block__head { margin-bottom: 20px; }
+.block + .block.block--sub { border-top: none; padding-top: 18px; }
+.block.block--sub > .block__head { margin-bottom: 14px; }
+@media (max-width: 640px) {
+  .block + .block { padding-top: 40px; }
+  .block + .block.block--sub { padding-top: 14px; }
+}
 
 .block__head {
   display: grid;
